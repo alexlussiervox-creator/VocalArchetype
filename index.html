@@ -1,0 +1,758 @@
+export const descriptors = [
+  {
+    id: 'bright', category: 'Timbre', label: 'Bright',
+    definition: 'Forward upper partial presence that reads as shiny, clear, or lifted.',
+    usage_note: 'Useful when you need pop clarity or a vocal that cuts through dense production.',
+    caution: 'Too much brightness can turn brittle or childish.',
+    artist_refs_primary: ['Carly Rae Jepsen', 'Ariana Grande'],
+    artist_refs_secondary: ['Troye Sivan', 'Robyn']
+  },
+  {
+    id: 'dark', category: 'Timbre', label: 'Dark',
+    definition: 'Reduced brightness with a shaded tone center and more low-mid emphasis.',
+    usage_note: 'Useful for sensual, mature, nocturnal, or grounded identities.',
+    caution: 'Can become muddy if paired with weak articulation.',
+    artist_refs_primary: ['Sade', 'Lana Del Rey'],
+    artist_refs_secondary: ['The National', 'Lorde']
+  },
+  {
+    id: 'airy', category: 'Texture', label: 'Airy',
+    definition: 'Audible breath leakage around the tone for softness and intimacy.',
+    usage_note: 'Works well for close-mic verses and low-pressure phrasing.',
+    caution: 'Can erase pitch definition if overused.',
+    artist_refs_primary: ['Billie Eilish', 'Clairo'],
+    artist_refs_secondary: ['Phoebe Bridgers', 'Cigarettes After Sex']
+  },
+  {
+    id: 'raspy', category: 'Texture', label: 'Raspy',
+    definition: 'Grain or friction in the tone, ranging from subtle edge to near-breakup.',
+    usage_note: 'Adds emotional wear, urgency, and human imperfection.',
+    caution: 'Too much can read as strain or generic rock cosplay.',
+    artist_refs_primary: ['Miley Cyrus', 'Janis Joplin'],
+    artist_refs_secondary: ['Lewis Capaldi', 'P!nk']
+  },
+  {
+    id: 'tight-phrasing', category: 'Phrasing', label: 'Tight phrasing',
+    definition: 'Rhythmic precision with clipped contour and deliberate timing.',
+    usage_note: 'Useful for modern pop, alt-R&B, and rhythm-led lines.',
+    caution: 'Can sound mechanical if combined with too little dynamic nuance.',
+    artist_refs_primary: ['Dua Lipa', 'Doja Cat'],
+    artist_refs_secondary: ['Charli xcx', 'Sabrina Carpenter']
+  },
+  {
+    id: 'loose-phrasing', category: 'Phrasing', label: 'Loose phrasing',
+    definition: 'Elastic line delivery with slight lateness, conversational drag, or spillover.',
+    usage_note: 'Useful when you want humanity, narration, or a lived-in feel.',
+    caution: 'Can sound lazy if the groove is not anchored.',
+    artist_refs_primary: ['Feist', 'Amy Winehouse'],
+    artist_refs_secondary: ['Norah Jones', 'Hozier']
+  },
+  {
+    id: 'narrow-vibrato', category: 'Movement', label: 'Narrow vibrato',
+    definition: 'Small and controlled oscillation that keeps the tone taut.',
+    usage_note: 'Good for modern fragility and precision.',
+    caution: 'Can read as tense if over-applied.',
+    artist_refs_primary: ['Adele', 'Tori Amos'],
+    artist_refs_secondary: ['Kelly Clarkson', 'Sam Smith']
+  },
+  {
+    id: 'wide-vibrato', category: 'Movement', label: 'Wide vibrato',
+    definition: 'Large oscillation that reads emotive, theatrical, or legacy-pop.',
+    usage_note: 'Useful for dramatic holds and overt emotional signaling.',
+    caution: 'Can date the sound very quickly.',
+    artist_refs_primary: ['Christina Aguilera', 'Lara Fabian'],
+    artist_refs_secondary: ['Florence Welch', 'Sarah Brightman']
+  },
+  {
+    id: 'forward-placement', category: 'Placement', label: 'Forward placement',
+    definition: 'Tone feels projected toward the front of the face, with immediate presence.',
+    usage_note: 'Good for intelligibility and contemporary proximity.',
+    caution: 'Can become nasal or sharp without balance.',
+    artist_refs_primary: ['Troye Sivan', 'Taylor Swift'],
+    artist_refs_secondary: ['Olivia Rodrigo', 'The Weeknd']
+  },
+  {
+    id: 'soft-consonants', category: 'Articulation', label: 'Soft consonants',
+    definition: 'Rounded, less percussive diction that keeps the line gentle.',
+    usage_note: 'Useful for intimacy and dreamier blends.',
+    caution: 'Can smear lyrics into mush.',
+    artist_refs_primary: ['Lana Del Rey', 'Cigarettes After Sex'],
+    artist_refs_secondary: ['Sade', 'Men I Trust']
+  },
+  {
+    id: 'sharp-consonants', category: 'Articulation', label: 'Sharp consonants',
+    definition: 'Clear articulated attacks that sharpen text and rhythm.',
+    usage_note: 'Useful when the lyric itself needs to carry impact.',
+    caution: 'Can feel aggressive or over-enunciated.',
+    artist_refs_primary: ['Dua Lipa', 'Emeli Sandé'],
+    artist_refs_secondary: ['P!nk', 'Adele']
+  },
+  {
+    id: 'close-mic', category: 'Production feel', label: 'Close mic',
+    definition: 'Intimate recording perspective with low distance and audible detail.',
+    usage_note: 'Best for confessional delivery and breath detail.',
+    caution: 'Exposes every flaw and can make bigger emotions feel cramped.',
+    artist_refs_primary: ['Billie Eilish', 'Phoebe Bridgers'],
+    artist_refs_secondary: ['Clairo', 'Bon Iver']
+  }
+]
+
+export const artists = [
+  {
+    artist_name: 'Billie Eilish',
+    summary: 'Controlled intimacy, light weight, close-mic softness, and careful edge without classic diva projection.',
+    descriptor_ids: ['airy', 'forward-placement', 'close-mic', 'soft-consonants'],
+    prompts: {
+      studio: 'light intimate vocal, close-mic, controlled breath, low-pressure phrasing, delicate clarity',
+      suno: 'soft intimate close-mic vocal, breathy but controlled, delicate modern pop phrasing',
+      udio: 'whisper-close intimate vocal, light breath texture, fragile but precise delivery'
+    }
+  },
+  {
+    artist_name: 'Dua Lipa',
+    summary: 'Centered pop authority, tight phrasing, clean tone, cool control, and grounded rhythmic confidence.',
+    descriptor_ids: ['bright', 'tight-phrasing', 'sharp-consonants'],
+    prompts: {
+      studio: 'clean modern pop vocal, rhythmic precision, grounded midrange authority, controlled lift',
+      suno: 'confident modern pop vocal, clean tone, tight phrasing, rhythmic and polished',
+      udio: 'steady polished female pop lead, cool controlled tone, rhythmic articulation'
+    }
+  },
+  {
+    artist_name: 'Miley Cyrus',
+    summary: 'Forward pop-rock identity with controlled rasp, direct attitude, and emotional abrasion.',
+    descriptor_ids: ['raspy', 'sharp-consonants', 'forward-placement'],
+    prompts: {
+      studio: 'forward pop-rock vocal, controlled rasp, direct phrasing, emotional grit',
+      suno: 'raspy modern pop-rock lead, edgy but controlled, expressive and direct',
+      udio: 'grainy female rock-pop vocal, forward placement, attitude and grit'
+    }
+  },
+  {
+    artist_name: 'Sade',
+    summary: 'Dark silk, low-pressure confidence, restrained sensuality, and elegant understatement.',
+    descriptor_ids: ['dark', 'soft-consonants', 'loose-phrasing'],
+    prompts: {
+      studio: 'dark sensual vocal, smooth low-pressure delivery, elegant phrasing, understated presence',
+      suno: 'smooth dark intimate vocal, sensual and restrained, elegant phrasing',
+      udio: 'dark velvety lead vocal, soft diction, minimal drama, sensual calm'
+    }
+  },
+  {
+    artist_name: 'Hozier',
+    summary: 'Earthy storytelling, open resonance, loose phrasing, and grounded emotional scale.',
+    descriptor_ids: ['dark', 'loose-phrasing', 'sharp-consonants'],
+    prompts: {
+      studio: 'earthy storyteller vocal, open resonance, grounded phrasing, human and lived-in',
+      suno: 'earthy expressive male vocal, storytelling feel, warm resonance, organic delivery',
+      udio: 'rich grounded singer-songwriter voice, earthy tone, loose human phrasing'
+    }
+  },
+  {
+    artist_name: 'Robyn',
+    summary: 'Bright emotional pop with control, tension, and clear synthetic-era identity.',
+    descriptor_ids: ['bright', 'tight-phrasing', 'narrow-vibrato'],
+    prompts: {
+      studio: 'bright emotional pop lead, clean tension, precise phrasing, clear top-end energy',
+      suno: 'bright modern pop vocal, emotional restraint, precise and tense phrasing',
+      udio: 'sharp bright electropop voice, focused and emotional, tightly delivered'
+    }
+  }
+]
+
+export const archetypes = [
+  {
+    id: 'cinematic-surge',
+    label: 'Cinematic Surge',
+    definition: 'Large dramatic cinematic rise with blooming emotion, widening scale, and pressured lift.',
+    artist_refs: ['Florence Welch', 'Sia', 'Lady Gaga', 'Adele', 'Aurora'],
+    prompts: {
+      studio: 'dramatic cinematic vocal, warm forward tone, pressured lift, swelling sustained phrasing, widescreen emotional rise',
+      suno: 'dramatic cinematic vocal, warm forward tone, pressured mix-belt lift, swelling sustained phrases, widescreen emotional rise',
+      udio: 'cinematic dramatic lead vocal, warm forward tone, blooming rise, sustained lift, pressured but controlled release',
+    },
+  },
+  {
+    id: 'bright-pop-lead',
+    label: 'Bright pop lead',
+    definition: 'Bright, forward, clear contemporary lead built for polished mainstream pop.',
+    artist_refs: ['Ariana Grande', 'Carly Rae Jepsen', 'Robyn', 'Sabrina Carpenter', 'Kylie Minogue'],
+    prompts: {
+      studio: 'bright pop lead, bright, forward, clear contemporary lead built for polished mainstream pop. translated into production language with concrete vocal behavior',
+      suno: 'bright pop lead, bright, forward, clear contemporary lead built for polished mainstream pop. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'bright pop lead, bright, forward, clear contemporary lead built for polished mainstream pop. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'fragile-forward',
+    label: 'Fragile Forward',
+    definition: 'Light, forward, intimate identity with controlled fragility and a preserved pitch core.',
+    artist_refs: ['Billie Eilish', 'Troye Sivan', 'Phoebe Bridgers', 'Imogen Heap', 'Clairo'],
+    prompts: {
+      studio: 'light forward intimate vocal, controlled fragility, preserved pitch core, restrained lift, close detail',
+      suno: 'light forward intimate vocal, controlled fragility, close-mic tone, restrained phrasing, preserved pitch core',
+      udio: 'fragile forward lead, intimate and controlled, light tone, held-back phrasing, subtle tension',
+    },
+  },
+  {
+    id: 'fragile-indie-voice',
+    label: 'Fragile indie voice',
+    definition: 'Light, intimate, delicate vocal identity with controlled softness and emotional proximity.',
+    artist_refs: ['Phoebe Bridgers', 'Billie Eilish', 'Clairo', 'Bon Iver', 'Daughter'],
+    prompts: {
+      studio: 'light intimate indie vocal, soft fragility, close-mic detail, understated emotion, controlled breath',
+      suno: 'light intimate indie vocal, soft fragility, close-mic tone, understated emotional proximity',
+      udio: 'fragile indie lead, close and soft, delicate phrasing, subtle emotional wear',
+    },
+  },
+  {
+    id: 'dark-sensual-voice',
+    label: 'Dark sensual voice',
+    definition: 'Shaded, slow-burning voice with low-mid richness and restrained seduction.',
+    artist_refs: ['Sade', 'Lana Del Rey', 'The Weeknd', 'Banks', 'Sevdaliza'],
+    prompts: {
+      studio: 'dark sensual voice, shaded, slow-burning voice with low-mid richness and restrained seduction. translated into production language with concrete vocal behavior',
+      suno: 'dark sensual voice, shaded, slow-burning voice with low-mid richness and restrained seduction. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'dark sensual voice, shaded, slow-burning voice with low-mid richness and restrained seduction. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'earthy-storyteller-voice',
+    label: 'Earthy storyteller voice',
+    definition: 'Grounded, human, text-led identity with lived-in phrasing and organic weight.',
+    artist_refs: ['Hozier', 'Tracy Chapman', 'Feist', 'Bruce Springsteen', 'Brandi Carlile'],
+    prompts: {
+      studio: 'earthy storyteller voice, grounded, human, text-led identity with lived-in phrasing and organic weight. translated into production language with concrete vocal behavior',
+      suno: 'earthy storyteller voice, grounded, human, text-led identity with lived-in phrasing and organic weight. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'earthy storyteller voice, grounded, human, text-led identity with lived-in phrasing and organic weight. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'androgynous-soft-voice',
+    label: 'Androgynous soft voice',
+    definition: 'Gentle, lightly weighted identity with ambiguous edge and soft focus.',
+    artist_refs: ['Troye Sivan', 'Cigarettes After Sex', 'The xx', 'Perfume Genius', 'Rhye'],
+    prompts: {
+      studio: 'androgynous soft voice, gentle, lightly weighted identity with ambiguous edge and soft focus. translated into production language with concrete vocal behavior',
+      suno: 'androgynous soft voice, gentle, lightly weighted identity with ambiguous edge and soft focus. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'androgynous soft voice, gentle, lightly weighted identity with ambiguous edge and soft focus. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'controlled-mix-tension',
+    label: 'Controlled mix tension',
+    definition: 'Held-in pressure, modern polish, and emotional restraint without full belt release.',
+    artist_refs: ['Sam Smith', 'Dua Lipa', 'Robyn', 'Lorde', 'Olivia Rodrigo'],
+    prompts: {
+      studio: 'controlled mix tension, held-in pressure, modern polish, and emotional restraint without full belt release. translated into production language with concrete vocal behavior',
+      suno: 'controlled mix tension, held-in pressure, modern polish, and emotional restraint without full belt release. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'controlled mix tension, held-in pressure, modern polish, and emotional restraint without full belt release. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'airy-intimate-breath',
+    label: 'Airy intimate breath',
+    definition: 'Intentional breath leakage and close-mic softness designed for emotional nearness.',
+    artist_refs: ['Billie Eilish', 'Clairo', 'Phoebe Bridgers', 'Lana Del Rey', 'Men I Trust'],
+    prompts: {
+      studio: 'airy intimate breath, intentional breath leakage and close-mic softness designed for emotional nearness. translated into production language with concrete vocal behavior',
+      suno: 'airy intimate breath, intentional breath leakage and close-mic softness designed for emotional nearness. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'airy intimate breath, intentional breath leakage and close-mic softness designed for emotional nearness. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'raspy-edge',
+    label: 'Raspy Edge',
+    definition: 'Texture-first vocal identity with audible grain, friction, and emotional abrasion.',
+    artist_refs: ['Miley Cyrus', 'Lewis Capaldi', 'P!nk', 'Janis Joplin', 'Chris Stapleton'],
+    prompts: {
+      studio: 'grainy forward vocal, emotional abrasion, rough edge, controlled push, expressive crackle',
+      suno: 'grainy forward vocal, rough edge, emotional abrasion, controlled rasp, pressured expressive push',
+      udio: 'raspy edge lead, grainy forward tone, expressive friction, worn warmth, controlled crack',
+    },
+  },
+  {
+    id: 'textured-raspy-edge',
+    label: 'Textured raspy edge',
+    definition: 'Grain, abrasion, or breakup ranging from subtle wear to raw damage.',
+    artist_refs: ['Miley Cyrus', 'Lewis Capaldi', 'P!nk', 'Janis Joplin', 'Chris Stapleton'],
+    prompts: {
+      studio: 'grainy forward vocal, emotional abrasion, rough edge, controlled push, expressive crackle',
+      suno: 'grainy forward vocal, rough edge, emotional abrasion, controlled rasp, pressured expressive push',
+      udio: 'raspy edge lead, grainy forward tone, expressive friction, worn warmth, controlled crack',
+    },
+  },
+  {
+    id: 'power-chest-belt',
+    label: 'Power chest belt',
+    definition: 'Projected high-pressure lead centered on chest dominance and overt force.',
+    artist_refs: ['Adele', 'Kelly Clarkson', 'Christina Aguilera', 'P!nk', 'Jessie J'],
+    prompts: {
+      studio: 'projected chest-led belt, high pressure, wide emotional scale, open vowels, strong release',
+      suno: 'powerful chest-led belt, projected high-pressure vocal, open sustained release, dramatic force',
+      udio: 'big projected belt vocal, chest-dominant power, sustained release, dramatic impact',
+    },
+  },
+  {
+    id: 'velvet-rnb-float',
+    label: 'Velvet R&B float',
+    definition: 'Smooth suspended vocal glide with warmth, softness, and modern R&B polish.',
+    artist_refs: ['SZA', 'Aaliyah', 'Summer Walker', 'Sade', 'Jhené Aiko'],
+    prompts: {
+      studio: 'velvet r&b float, smooth suspended vocal glide with warmth, softness, and modern r&b polish. translated into production language with concrete vocal behavior',
+      suno: 'velvet r&b float, smooth suspended vocal glide with warmth, softness, and modern r&b polish. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'velvet r&b float, smooth suspended vocal glide with warmth, softness, and modern r&b polish. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'icy-alt-pop-glow',
+    label: 'Icy alt-pop glow',
+    definition: 'Cool luminous vocal sheen with detached elegance and synthetic poise.',
+    artist_refs: ['Lorde', 'Banks', 'Allie X', 'Röyksopp guest vocals', 'Grimes'],
+    prompts: {
+      studio: 'icy alt-pop glow, cool luminous vocal sheen with detached elegance and synthetic poise. translated into production language with concrete vocal behavior',
+      suno: 'icy alt-pop glow, cool luminous vocal sheen with detached elegance and synthetic poise. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'icy alt-pop glow, cool luminous vocal sheen with detached elegance and synthetic poise. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'smoky-midnight-crooner',
+    label: 'Smoky midnight crooner',
+    definition: 'Low-lit nocturnal lead with smoky shading and slow magnetic delivery.',
+    artist_refs: ['The Weeknd', 'Chet Baker', 'Rhye', 'Lana Del Rey', 'Matt Monro'],
+    prompts: {
+      studio: 'smoky midnight crooner, low-lit nocturnal lead with smoky shading and slow magnetic delivery. translated into production language with concrete vocal behavior',
+      suno: 'smoky midnight crooner, low-lit nocturnal lead with smoky shading and slow magnetic delivery. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'smoky midnight crooner, low-lit nocturnal lead with smoky shading and slow magnetic delivery. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'clean-radio-lift',
+    label: 'Clean radio lift',
+    definition: 'Safe polished lift built for broad-access mainstream choruses.',
+    artist_refs: ['Taylor Swift', 'Shawn Mendes', 'Ellie Goulding', 'Dua Lipa', 'Katy Perry'],
+    prompts: {
+      studio: 'clean radio lift, safe polished lift built for broad-access mainstream choruses. translated into production language with concrete vocal behavior',
+      suno: 'clean radio lift, safe polished lift built for broad-access mainstream choruses. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'clean radio lift, safe polished lift built for broad-access mainstream choruses. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'nasal-pop-pierce',
+    label: 'Nasal pop pierce',
+    definition: 'Forward nasal brightness that sharpens identity and cuts through production.',
+    artist_refs: ['Charli xcx', 'Olivia Rodrigo', 'Kesha', 'The 1975', 'Doja Cat'],
+    prompts: {
+      studio: 'nasal pop pierce, forward nasal brightness that sharpens identity and cuts through production. translated into production language with concrete vocal behavior',
+      suno: 'nasal pop pierce, forward nasal brightness that sharpens identity and cuts through production. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'nasal pop pierce, forward nasal brightness that sharpens identity and cuts through production. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'silken-house-diva',
+    label: 'Silken house diva',
+    definition: 'Polished dance lead with sheen, sustained poise, and elevated hook clarity.',
+    artist_refs: ['Kylie Minogue', 'Sophie Ellis-Bextor', 'Jessie Ware', 'Roísín Murphy', 'Dua Lipa'],
+    prompts: {
+      studio: 'silken house diva, polished dance lead with sheen, sustained poise, and elevated hook clarity. translated into production language with concrete vocal behavior',
+      suno: 'silken house diva, polished dance lead with sheen, sustained poise, and elevated hook clarity. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'silken house diva, polished dance lead with sheen, sustained poise, and elevated hook clarity. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'hushed-bedroom-pop',
+    label: 'Hushed bedroom pop',
+    definition: 'Understated private-room softness with low-energy charm and confessional closeness.',
+    artist_refs: ['Clairo', 'beabadoobee', 'Rex Orange County', 'Billie Eilish', 'Men I Trust'],
+    prompts: {
+      studio: 'hushed bedroom pop, understated private-room softness with low-energy charm and confessional closeness. translated into production language with concrete vocal behavior',
+      suno: 'hushed bedroom pop, understated private-room softness with low-energy charm and confessional closeness. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'hushed bedroom pop, understated private-room softness with low-energy charm and confessional closeness. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'youthful-nylon-lead',
+    label: 'Youthful nylon lead',
+    definition: 'Soft, lightly glossy tone with young-coded pliability and ease.',
+    artist_refs: ['Conan Gray', 'Sabrina Carpenter', 'Nessa Barrett', 'Madison Beer', 'Troye Sivan'],
+    prompts: {
+      studio: 'youthful nylon lead, soft, lightly glossy tone with young-coded pliability and ease. translated into production language with concrete vocal behavior',
+      suno: 'youthful nylon lead, soft, lightly glossy tone with young-coded pliability and ease. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'youthful nylon lead, soft, lightly glossy tone with young-coded pliability and ease. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'glassy-high-femme',
+    label: 'Glassy high femme',
+    definition: 'Smooth upper-bright identity with neat contour and elegant polish.',
+    artist_refs: ['Ariana Grande', 'Victoria Monét', 'Tinashe', 'Bebe Rexha', 'Kylie Minogue'],
+    prompts: {
+      studio: 'glassy high femme, smooth upper-bright identity with neat contour and elegant polish. translated into production language with concrete vocal behavior',
+      suno: 'glassy high femme, smooth upper-bright identity with neat contour and elegant polish. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'glassy high femme, smooth upper-bright identity with neat contour and elegant polish. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'bruise-pop-confessional',
+    label: 'Bruise pop confessional',
+    definition: 'Emotionally bruised modern pop voice that sounds wounded but composed.',
+    artist_refs: ['Olivia Rodrigo', 'Gracie Abrams', 'Phoebe Bridgers', 'Lorde', 'Maisie Peters'],
+    prompts: {
+      studio: 'bruise pop confessional, emotionally bruised modern pop voice that sounds wounded but composed. translated into production language with concrete vocal behavior',
+      suno: 'bruise pop confessional, emotionally bruised modern pop voice that sounds wounded but composed. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'bruise pop confessional, emotionally bruised modern pop voice that sounds wounded but composed. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'burnt-country-edge',
+    label: 'Burnt country edge',
+    definition: 'Weathered grit with storytelling focus and rural or Americana shading.',
+    artist_refs: ['Chris Stapleton', 'Kacey Musgraves', 'Maren Morris', 'Tyler Childers', 'Brandi Carlile'],
+    prompts: {
+      studio: 'burnt country edge, weathered grit with storytelling focus and rural or americana shading. translated into production language with concrete vocal behavior',
+      suno: 'burnt country edge, weathered grit with storytelling focus and rural or americana shading. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'burnt country edge, weathered grit with storytelling focus and rural or americana shading. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'french-chanson-cinema',
+    label: 'French chanson cinema',
+    definition: 'Text-led theatrical intimacy with cultured shaping and dramatic contour.',
+    artist_refs: ['Dalida', 'Barbara', 'Lara Fabian', 'Camille', 'Zaz'],
+    prompts: {
+      studio: 'french chanson cinema, text-led theatrical intimacy with cultured shaping and dramatic contour. translated into production language with concrete vocal behavior',
+      suno: 'french chanson cinema, text-led theatrical intimacy with cultured shaping and dramatic contour. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'french chanson cinema, text-led theatrical intimacy with cultured shaping and dramatic contour. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'southern-soul-ache',
+    label: 'Southern soul ache',
+    definition: 'Open-hearted, pain-forward soul identity with heat and gravity.',
+    artist_refs: ['Chris Stapleton', 'Yola', 'Adele', 'Nathaniel Rateliff', 'Mavis Staples'],
+    prompts: {
+      studio: 'southern soul ache, open-hearted, pain-forward soul identity with heat and gravity. translated into production language with concrete vocal behavior',
+      suno: 'southern soul ache, open-hearted, pain-forward soul identity with heat and gravity. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'southern soul ache, open-hearted, pain-forward soul identity with heat and gravity. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'cool-electro-detachment',
+    label: 'Cool electro detachment',
+    definition: 'Controlled emotional distance with sleek articulation and synthetic coolness.',
+    artist_refs: ['Robyn', 'Lorde', 'Allie X', 'MØ', 'Tove Lo'],
+    prompts: {
+      studio: 'cool electro detachment, controlled emotional distance with sleek articulation and synthetic coolness. translated into production language with concrete vocal behavior',
+      suno: 'cool electro detachment, controlled emotional distance with sleek articulation and synthetic coolness. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'cool electro detachment, controlled emotional distance with sleek articulation and synthetic coolness. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'romantic-tenor-glow',
+    label: 'Romantic tenor glow',
+    definition: 'Warm radiant male lead with polished romance and sustained charm.',
+    artist_refs: ['Harry Styles', 'George Michael', 'Richard Marx', 'Seal', 'Sam Smith'],
+    prompts: {
+      studio: 'romantic tenor glow, warm radiant male lead with polished romance and sustained charm. translated into production language with concrete vocal behavior',
+      suno: 'romantic tenor glow, warm radiant male lead with polished romance and sustained charm. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'romantic tenor glow, warm radiant male lead with polished romance and sustained charm. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'cracked-heart-balladeer',
+    label: 'Cracked heart balladeer',
+    definition: 'Open emotional ballad lead where strain and sincerity live side by side.',
+    artist_refs: ['Lewis Capaldi', 'Sam Smith', 'Adele', 'James Arthur', 'Emeli Sandé'],
+    prompts: {
+      studio: 'cracked heart balladeer, open emotional ballad lead where strain and sincerity live side by side. translated into production language with concrete vocal behavior',
+      suno: 'cracked heart balladeer, open emotional ballad lead where strain and sincerity live side by side. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'cracked heart balladeer, open emotional ballad lead where strain and sincerity live side by side. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'whisper-gospel-lift',
+    label: 'Whisper gospel lift',
+    definition: 'Soft approach with spiritual rise, intimate at first but capable of bloom.',
+    artist_refs: ['H.E.R.', 'Yebba', 'Tori Kelly', 'Jacob Collier guest style', 'Lianne La Havas'],
+    prompts: {
+      studio: 'whisper gospel lift, soft approach with spiritual rise, intimate at first but capable of bloom. translated into production language with concrete vocal behavior',
+      suno: 'whisper gospel lift, soft approach with spiritual rise, intimate at first but capable of bloom. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'whisper gospel lift, soft approach with spiritual rise, intimate at first but capable of bloom. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'dusky-art-pop-narrator',
+    label: 'Dusky art-pop narrator',
+    definition: 'Stylized storytelling with unusual contour, dark color, and artful remove.',
+    artist_refs: ['St. Vincent', 'Kate Bush', 'Fiona Apple', 'Bat for Lashes', 'Tori Amos'],
+    prompts: {
+      studio: 'dusky art-pop narrator, stylized storytelling with unusual contour, dark color, and artful remove. translated into production language with concrete vocal behavior',
+      suno: 'dusky art-pop narrator, stylized storytelling with unusual contour, dark color, and artful remove. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'dusky art-pop narrator, stylized storytelling with unusual contour, dark color, and artful remove. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'sleek-k-pop-sheen',
+    label: 'Sleek K-pop sheen',
+    definition: 'Polished, agile, bright vocal identity optimized for clean pop production.',
+    artist_refs: ['Jungkook', 'Taeyeon', 'NewJeans vocal line', 'IU', 'Jihyo'],
+    prompts: {
+      studio: 'sleek k-pop sheen, polished, agile, bright vocal identity optimized for clean pop production. translated into production language with concrete vocal behavior',
+      suno: 'sleek k-pop sheen, polished, agile, bright vocal identity optimized for clean pop production. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'sleek k-pop sheen, polished, agile, bright vocal identity optimized for clean pop production. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'weightless-dream-pop',
+    label: 'Weightless dream-pop',
+    definition: 'Soft-focus floating lead with reduced attack and suspended emotion.',
+    artist_refs: ['Cocteau Twins', 'Beach House', 'Men I Trust', 'M83 guest vocals', 'Mazzy Star'],
+    prompts: {
+      studio: 'weightless dream-pop, soft-focus floating lead with reduced attack and suspended emotion. translated into production language with concrete vocal behavior',
+      suno: 'weightless dream-pop, soft-focus floating lead with reduced attack and suspended emotion. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'weightless dream-pop, soft-focus floating lead with reduced attack and suspended emotion. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'soft-butch-indie',
+    label: 'Soft butch indie',
+    definition: 'Grounded understated identity with low pressure, directness, and gender blur.',
+    artist_refs: ['Perfume Genius', 'Christine and the Queens', 'Phoebe Bridgers live lower settings', 'King Princess', 'The xx'],
+    prompts: {
+      studio: 'soft butch indie, grounded understated identity with low pressure, directness, and gender blur. translated into production language with concrete vocal behavior',
+      suno: 'soft butch indie, grounded understated identity with low pressure, directness, and gender blur. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'soft butch indie, grounded understated identity with low pressure, directness, and gender blur. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'midrange-authority-pop',
+    label: 'Midrange authority pop',
+    definition: 'Commanding center-weight pop lead without excessive belt theatrics.',
+    artist_refs: ['Dua Lipa', 'Sade', 'George Michael', 'Jessie Ware', 'Annie Lennox'],
+    prompts: {
+      studio: 'midrange authority pop, commanding center-weight pop lead without excessive belt theatrics. translated into production language with concrete vocal behavior',
+      suno: 'midrange authority pop, commanding center-weight pop lead without excessive belt theatrics. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'midrange authority pop, commanding center-weight pop lead without excessive belt theatrics. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'neon-hyperpop-squeal',
+    label: 'Neon hyperpop squeal',
+    definition: 'Artificially sharpened upper energy with exaggerated gloss and digital attitude.',
+    artist_refs: ['Charli xcx', 'Slayyyter', 'Hannah Diamond', 'Kim Petras', '100 gecs guest styles'],
+    prompts: {
+      studio: 'neon hyperpop squeal, artificially sharpened upper energy with exaggerated gloss and digital attitude. translated into production language with concrete vocal behavior',
+      suno: 'neon hyperpop squeal, artificially sharpened upper energy with exaggerated gloss and digital attitude. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'neon hyperpop squeal, artificially sharpened upper energy with exaggerated gloss and digital attitude. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'warm-neo-soul-silk',
+    label: 'Warm neo-soul silk',
+    definition: 'Rounded, rich, flexible voice with intimacy and harmonic sophistication.',
+    artist_refs: ['Erykah Badu', 'H.E.R.', 'Lianne La Havas', 'Musiq Soulchild', 'Jazmine Sullivan'],
+    prompts: {
+      studio: 'warm neo-soul silk, rounded, rich, flexible voice with intimacy and harmonic sophistication. translated into production language with concrete vocal behavior',
+      suno: 'warm neo-soul silk, rounded, rich, flexible voice with intimacy and harmonic sophistication. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'warm neo-soul silk, rounded, rich, flexible voice with intimacy and harmonic sophistication. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'stressed-tik-pop-plead',
+    label: 'Stressed Tik-pop plead',
+    definition: 'Youth-coded urgent pop singing with a strained emotional edge.',
+    artist_refs: ['Olivia Rodrigo', 'Tate McRae', 'Nessa Barrett', 'Conan Gray', 'Gracie Abrams'],
+    prompts: {
+      studio: 'stressed tik-pop plead, youth-coded urgent pop singing with a strained emotional edge. translated into production language with concrete vocal behavior',
+      suno: 'stressed tik-pop plead, youth-coded urgent pop singing with a strained emotional edge. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'stressed tik-pop plead, youth-coded urgent pop singing with a strained emotional edge. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'silver-screen-dramatic',
+    label: 'Silver-screen dramatic',
+    definition: 'Big-canvas cinematic voice with overt shape and heightened emotion.',
+    artist_refs: ['Lara Fabian', 'Florence Welch', 'Sarah Brightman', 'Celine Dion', 'Adele'],
+    prompts: {
+      studio: 'silver-screen dramatic, big-canvas cinematic voice with overt shape and heightened emotion. translated into production language with concrete vocal behavior',
+      suno: 'silver-screen dramatic, big-canvas cinematic voice with overt shape and heightened emotion. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'silver-screen dramatic, big-canvas cinematic voice with overt shape and heightened emotion. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'minimalist-cool-girl',
+    label: 'Minimalist cool girl',
+    definition: 'Underplayed polished feminine lead with poise, reserve, and fashion-world cool.',
+    artist_refs: ['Lorde', 'Sade', 'The xx', 'Rosalia softer settings', 'Jessie Ware'],
+    prompts: {
+      studio: 'minimalist cool girl, underplayed polished feminine lead with poise, reserve, and fashion-world cool. translated into production language with concrete vocal behavior',
+      suno: 'minimalist cool girl, underplayed polished feminine lead with poise, reserve, and fashion-world cool. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'minimalist cool girl, underplayed polished feminine lead with poise, reserve, and fashion-world cool. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'soft-masculine-folk',
+    label: 'Soft masculine folk',
+    definition: 'Gentle male-presenting storyteller identity with warmth and low push.',
+    artist_refs: ['Sufjan Stevens', 'Bon Iver', 'Damien Rice', 'Ben Howard', 'Fleet Foxes'],
+    prompts: {
+      studio: 'soft masculine folk, gentle male-presenting storyteller identity with warmth and low push. translated into production language with concrete vocal behavior',
+      suno: 'soft masculine folk, gentle male-presenting storyteller identity with warmth and low push. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'soft masculine folk, gentle male-presenting storyteller identity with warmth and low push. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'opera-adjacent-pop-diva',
+    label: 'Opera-adjacent pop diva',
+    definition: 'Pop-driven identity borrowing classical height, width, and grandeur.',
+    artist_refs: ['Sarah Brightman', 'Lara Fabian', 'Andrea Bocelli pop settings', 'Il Divo', 'Josh Groban'],
+    prompts: {
+      studio: 'opera-adjacent pop diva, pop-driven identity borrowing classical height, width, and grandeur. translated into production language with concrete vocal behavior',
+      suno: 'opera-adjacent pop diva, pop-driven identity borrowing classical height, width, and grandeur. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'opera-adjacent pop diva, pop-driven identity borrowing classical height, width, and grandeur. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'broken-angel-alt-rnb',
+    label: 'Broken angel alt-R&B',
+    definition: 'Soft wounded sensuality with float, breaks, and emotional underlighting.',
+    artist_refs: ['SZA', 'Jhené Aiko', 'FKA twigs', 'Tinashe', 'Banks'],
+    prompts: {
+      studio: 'broken angel alt-r&b, soft wounded sensuality with float, breaks, and emotional underlighting. translated into production language with concrete vocal behavior',
+      suno: 'broken angel alt-r&b, soft wounded sensuality with float, breaks, and emotional underlighting. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'broken angel alt-r&b, soft wounded sensuality with float, breaks, and emotional underlighting. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'festival-indie-shout',
+    label: 'Festival indie shout',
+    definition: 'Open communal indie release built for catharsis more than precision.',
+    artist_refs: ['Florence Welch', 'Maggie Rogers', 'Arcade Fire', 'Mumford & Sons', 'The Lumineers'],
+    prompts: {
+      studio: 'festival indie shout, open communal indie release built for catharsis more than precision. translated into production language with concrete vocal behavior',
+      suno: 'festival indie shout, open communal indie release built for catharsis more than precision. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'festival indie shout, open communal indie release built for catharsis more than precision. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'clean-broadway-pop',
+    label: 'Clean Broadway pop',
+    definition: 'High projection, polished vowels, and theatrical precision adapted to pop.',
+    artist_refs: ['Sara Bareilles', 'Ben Platt', 'Lea Michele', 'Rachel Zegler', 'Jonathan Groff'],
+    prompts: {
+      studio: 'clean broadway pop, high projection, polished vowels, and theatrical precision adapted to pop. translated into production language with concrete vocal behavior',
+      suno: 'clean broadway pop, high projection, polished vowels, and theatrical precision adapted to pop. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'clean broadway pop, high projection, polished vowels, and theatrical precision adapted to pop. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'deep-lounge-murmur',
+    label: 'Deep lounge murmur',
+    definition: 'Low-set intimate tone with murmured elegance and expensive restraint.',
+    artist_refs: ['Sade', 'Chet Baker', 'Julie London', 'Matt Maltese', 'Rhye'],
+    prompts: {
+      studio: 'deep lounge murmur, low-set intimate tone with murmured elegance and expensive restraint. translated into production language with concrete vocal behavior',
+      suno: 'deep lounge murmur, low-set intimate tone with murmured elegance and expensive restraint. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'deep lounge murmur, low-set intimate tone with murmured elegance and expensive restraint. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'garage-heartbreak-falsetto',
+    label: 'Garage heartbreak falsetto',
+    definition: 'Thin emotional upper register carrying ache, youth, and instability.',
+    artist_refs: ['The Weeknd early', 'Justin Vernon', 'Conan Gray', 'Prince lighter moods', 'Moses Sumney'],
+    prompts: {
+      studio: 'garage heartbreak falsetto, thin emotional upper register carrying ache, youth, and instability. translated into production language with concrete vocal behavior',
+      suno: 'garage heartbreak falsetto, thin emotional upper register carrying ache, youth, and instability. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'garage heartbreak falsetto, thin emotional upper register carrying ache, youth, and instability. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'glam-rock-snarl',
+    label: 'Glam rock snarl',
+    definition: 'High-attitude, sharpened edge, and dramatic swagger with theatrical bite.',
+    artist_refs: ['David Bowie', 'Måneskin', 'Miley Cyrus live edge', 'The Darkness', 'P!nk'],
+    prompts: {
+      studio: 'glam rock snarl, high-attitude, sharpened edge, and dramatic swagger with theatrical bite. translated into production language with concrete vocal behavior',
+      suno: 'glam rock snarl, high-attitude, sharpened edge, and dramatic swagger with theatrical bite. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'glam rock snarl, high-attitude, sharpened edge, and dramatic swagger with theatrical bite. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'pastel-anime-softness',
+    label: 'Pastel anime softness',
+    definition: 'Ultra-soft clean sweetness with stylized innocence and polished fantasy.',
+    artist_refs: ['Kero Kero Bonito', 'NewJeans lighter tones', 'J-pop city pop singers', 'IU softer settings', 'Japanese idol ballad aesthetics'],
+    prompts: {
+      studio: 'pastel anime softness, ultra-soft clean sweetness with stylized innocence and polished fantasy. translated into production language with concrete vocal behavior',
+      suno: 'pastel anime softness, ultra-soft clean sweetness with stylized innocence and polished fantasy. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'pastel anime softness, ultra-soft clean sweetness with stylized innocence and polished fantasy. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'nocturnal-alt-rnb-whisper',
+    label: 'Nocturnal alt-R&B whisper',
+    definition: 'After-hours whisper-float with sensual darkness and reduced attack.',
+    artist_refs: ['The Weeknd', 'Banks', 'Jhené Aiko', 'PARTYNEXTDOOR', 'Sabrina Claudio'],
+    prompts: {
+      studio: 'nocturnal alt-r&b whisper, after-hours whisper-float with sensual darkness and reduced attack. translated into production language with concrete vocal behavior',
+      suno: 'nocturnal alt-r&b whisper, after-hours whisper-float with sensual darkness and reduced attack. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'nocturnal alt-r&b whisper, after-hours whisper-float with sensual darkness and reduced attack. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'grave-poet-baritone',
+    label: 'Grave poet baritone',
+    definition: 'Dark literary baritone presence with text weight and existential gravity.',
+    artist_refs: ['Leonard Cohen', 'Nick Cave', 'Matt Berninger', 'Johnny Cash', 'Scott Walker'],
+    prompts: {
+      studio: 'grave poet baritone, dark literary baritone presence with text weight and existential gravity. translated into production language with concrete vocal behavior',
+      suno: 'grave poet baritone, dark literary baritone presence with text weight and existential gravity. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'grave poet baritone, dark literary baritone presence with text weight and existential gravity. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'sunlit-acoustic-friend',
+    label: 'Sunlit acoustic friend',
+    definition: 'Warm approachable singalong identity built for closeness and ease.',
+    artist_refs: ['Jack Johnson', 'Jason Mraz', 'Colbie Caillat', 'Sara Bareilles', 'Ed Sheeran'],
+    prompts: {
+      studio: 'sunlit acoustic friend, warm approachable singalong identity built for closeness and ease. translated into production language with concrete vocal behavior',
+      suno: 'sunlit acoustic friend, warm approachable singalong identity built for closeness and ease. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'sunlit acoustic friend, warm approachable singalong identity built for closeness and ease. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'euro-dance-femme-rise',
+    label: 'Euro dance femme rise',
+    definition: 'Bright feminine dance vocal built for uplift, clarity, and hook propulsion.',
+    artist_refs: ['Cascada', 'Kylie Minogue', 'Sophie Ellis-Bextor', 'Dua Lipa', 'Rita Ora'],
+    prompts: {
+      studio: 'euro dance femme rise, bright feminine dance vocal built for uplift, clarity, and hook propulsion. translated into production language with concrete vocal behavior',
+      suno: 'euro dance femme rise, bright feminine dance vocal built for uplift, clarity, and hook propulsion. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'euro dance femme rise, bright feminine dance vocal built for uplift, clarity, and hook propulsion. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'haunted-cabaret-whisper',
+    label: 'Haunted cabaret whisper',
+    definition: 'Theatrical haunted intimacy with murmur, shape, and strange magnetism.',
+    artist_refs: ['Fiona Apple', 'St. Vincent', 'Marlene Dietrich', 'Amanda Palmer', 'Björk'],
+    prompts: {
+      studio: 'haunted cabaret whisper, theatrical haunted intimacy with murmur, shape, and strange magnetism. translated into production language with concrete vocal behavior',
+      suno: 'haunted cabaret whisper, theatrical haunted intimacy with murmur, shape, and strange magnetism. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'haunted cabaret whisper, theatrical haunted intimacy with murmur, shape, and strange magnetism. with concise vocal identity and usable production cues',
+    },
+  },
+  {
+    id: 'velour-adult-contemporary',
+    label: 'Velour adult contemporary',
+    definition: 'Smooth mature center-balanced voice designed for polish, warmth, and comfort.',
+    artist_refs: ['Celine Dion softer settings', 'Michael Bublé', 'Norah Jones', 'Seal', 'Anita Baker'],
+    prompts: {
+      studio: 'velour adult contemporary, smooth mature center-balanced voice designed for polish, warmth, and comfort. translated into production language with concrete vocal behavior',
+      suno: 'velour adult contemporary, smooth mature center-balanced voice designed for polish, warmth, and comfort. with clear vocal behavior, target-ready for generative prompting',
+      udio: 'velour adult contemporary, smooth mature center-balanced voice designed for polish, warmth, and comfort. with concise vocal identity and usable production cues',
+    },
+  },
+]
