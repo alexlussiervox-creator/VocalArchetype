@@ -3,10 +3,10 @@ import { archetypes, artists, descriptors, promptTargets } from './data'
 
 const defaultBuilder = {
   target: 'suno',
-  primaryId: 'cinematic-surge',
-  secondaryId: 'fragile-forward',
-  modifierId: 'raspy-edge',
-  intensity: 65,
+  primaryId: '',
+  secondaryId: '',
+  modifierId: '',
+  intensity: 50,
   priority: 'blended',
 }
 
@@ -47,6 +47,7 @@ function buildPrompt({ target, primaryId, secondaryId, modifierId, intensity, pr
   const modifier = archetypes.find((item) => item.id === modifierId)
 
   const selected = [primary, secondary, modifier].filter(Boolean)
+  if (selected.length === 0) return ''
   const basePrompt = selected.map((item) => item.prompts[target]).join(', ')
 
   const parameterLines = [
@@ -121,6 +122,7 @@ export default function App() {
           <label>
             <span>Primary archetype</span>
             <select value={builder.primaryId} onChange={(event) => setBuilder((state) => ({ ...state, primaryId: event.target.value }))}>
+              <option value="">Choose a primary archetype</option>
               {archetypes.map((item) => (
                 <option key={item.id} value={item.id}>{item.label}</option>
               ))}
@@ -130,6 +132,7 @@ export default function App() {
           <label>
             <span>Secondary archetype</span>
             <select value={builder.secondaryId} onChange={(event) => setBuilder((state) => ({ ...state, secondaryId: event.target.value }))}>
+              <option value="">None</option>
               {archetypes.map((item) => (
                 <option key={item.id} value={item.id}>{item.label}</option>
               ))}
@@ -139,6 +142,7 @@ export default function App() {
           <label>
             <span>Modifier archetype</span>
             <select value={builder.modifierId} onChange={(event) => setBuilder((state) => ({ ...state, modifierId: event.target.value }))}>
+              <option value="">None</option>
               {archetypes.map((item) => (
                 <option key={item.id} value={item.id}>{item.label}</option>
               ))}
@@ -169,9 +173,9 @@ export default function App() {
         <div className="prompt-card">
           <div className="prompt-card-header">
             <h2>Generated prompt</h2>
-            <button className="copy-button" onClick={() => navigator.clipboard.writeText(prompt)}>Copy</button>
+            <button className="copy-button" onClick={() => navigator.clipboard.writeText(prompt)} disabled={!prompt}>Copy</button>
           </div>
-          <pre>{prompt}</pre>
+          <pre>{prompt || 'Choose a primary archetype to generate a prompt.'}</pre>
         </div>
       </Section>
 
