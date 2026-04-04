@@ -23,3 +23,6 @@ npm run build
 - Reset restores default builder state
 - Cinematic Surge present
 - Artists and Archetypes sections collapsible
+
+
+Updated build: reset now returns the builder to an empty state and the prompt area starts blank.
