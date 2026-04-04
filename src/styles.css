@@ -1,0 +1,213 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(59, 130, 246, 0.18), transparent 28%),
+    linear-gradient(180deg, #0f172a 0%, #111827 100%);
+}
+
+button,
+select,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(100%, 960px);
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+.hero,
+.panel,
+.card,
+.subpanel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #93c5fd;
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.hero-copy {
+  margin: 10px 0 0;
+  color: #cbd5e1;
+  line-height: 1.45;
+  max-width: 54ch;
+}
+
+.reset-button,
+.copy-button,
+.panel-toggle,
+.subpanel-toggle {
+  border: 0;
+}
+
+.reset-button,
+.copy-button {
+  background: #2563eb;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.panel {
+  margin-bottom: 14px;
+}
+
+.panel-toggle,
+.subpanel-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  color: inherit;
+  padding: 16px 18px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.panel-body {
+  padding: 0 18px 18px;
+}
+
+.builder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label span {
+  font-size: 0.92rem;
+  color: #cbd5e1;
+}
+
+select,
+input[type='range'] {
+  width: 100%;
+}
+
+select {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(15, 23, 42, 0.85);
+  color: #f8fafc;
+}
+
+.prompt-card {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(2, 6, 23, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.prompt-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.prompt-card h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+  color: #dbeafe;
+  margin: 14px 0 0;
+}
+
+.stack-list {
+  display: grid;
+  gap: 12px;
+}
+
+.subpanel {
+  overflow: hidden;
+}
+
+.descriptor-list {
+  display: grid;
+  gap: 12px;
+  padding: 0 14px 14px;
+}
+
+.card {
+  padding: 14px;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.card p,
+.parameter-list {
+  margin: 8px 0;
+  line-height: 1.45;
+  color: #d1d5db;
+}
+
+.parameter-list {
+  padding-left: 18px;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+}
