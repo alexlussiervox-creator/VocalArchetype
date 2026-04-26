@@ -51,7 +51,7 @@ const SUNO_CAPABILITY_MAP: Record<string, CapabilityEntry> = {
   },
 };
 
-const STYLE_DOMAINS: Domain[] = [
+const STYLE_DOMAINS = [
   "genre",
   "vocal_role",
   "surface",
@@ -59,7 +59,7 @@ const STYLE_DOMAINS: Domain[] = [
   "delivery",
   "motion",
   "production",
-];
+] as const;
 
 function getSupportLevel(key: string): SupportLevel {
   return SUNO_CAPABILITY_MAP[key]?.support ?? "unsupported";

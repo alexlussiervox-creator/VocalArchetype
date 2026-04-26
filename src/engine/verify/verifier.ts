@@ -8,7 +8,7 @@ import type {
   VerifierResult,
 } from "../types/packageTypes";
 
-const STYLE_BUDGET_DOMAINS: Domain[] = [
+const STYLE_BUDGET_DOMAINS = [
   "genre",
   "vocal_role",
   "surface",
@@ -16,7 +16,7 @@ const STYLE_BUDGET_DOMAINS: Domain[] = [
   "delivery",
   "motion",
   "production",
-];
+] as const;
 
 const ALL_SECTIONS: SectionName[] = [
   "global",
@@ -99,10 +99,6 @@ function validateSectionPatches(ir: CompilerIR): string[] {
 
     if (!ALL_SECTIONS.includes(patch.section)) {
       errors.push(`${path}.section is invalid`);
-    }
-
-    if (patch.section === "global") {
-      errors.push(`${path}.section cannot be "global"`);
     }
 
     if (seen.has(patch.section)) {
