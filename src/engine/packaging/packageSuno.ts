@@ -56,9 +56,25 @@ function renderSectionedPayload(resolved: ResolvedIR): SectionedPromptPayload {
 }
 
 function renderFallbackPrompt(resolved: ResolvedIR): string {
+  // Fallback strategy: use removed nodes if available, otherwise use non-direct support nodes
+  // This ensures a fallback is generated when conflicts cause node removal or support degradation
+  
+  if (resolved.removedNodes.length > 0) {
+    // If nodes were removed due to conflicts, use them as fallback
+    const narrowed = resolved.removedNodes.filter((node) => ["genre", "role", "delivery", "motion"].includes(node.domain));
+    return compressPrompt(narrowed.length > 0 ? narrowed : resolved.removedNodes);
+  }
+  
+  // Otherwise, try to build from direct support nodes
   const direct = resolved.globalNodes.filter((node) => node.support === "direct");
-  const narrowed = direct.filter((node) => ["genre", "role", "delivery", "motion"].includes(node.domain));
-  return compressPrompt(narrowed.length > 0 ? narrowed : direct);
+  if (direct.length > 0) {
+    const narrowed = direct.filter((node) => ["genre", "role", "delivery", "motion"].includes(node.domain));
+    return compressPrompt(narrowed.length > 0 ? narrowed : direct);
+  }
+  
+  // If no direct support nodes, use all global nodes (including approximate/unsupported)
+  const narrowed = resolved.globalNodes.filter((node) => ["genre", "role", "delivery", "motion"].includes(node.domain));
+  return compressPrompt(narrowed.length > 0 ? narrowed : resolved.globalNodes);
 }
 
 function buildMultiVoiceNotes(resolved: ResolvedIR): string[] {
