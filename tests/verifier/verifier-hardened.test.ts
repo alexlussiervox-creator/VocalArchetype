@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { verifyCompilerIR } from "../../src/engine/verifier/verifier";
-import { CompilerIR, IRNode } from "../../src/engine/contracts/packageTypes";
+import { CompilerIR, IRNode, TraitDomain, SemanticClass, Priority, SupportLevel } from "../../src/engine/contracts/packageTypes";
 
 describe("verifyCompilerIR - Hardened Tests", () => {
   describe("Invalid IR - Missing Required Fields", () => {
@@ -451,12 +451,12 @@ describe("verifyCompilerIR - Hardened Tests", () => {
     });
 
     it("accepts IR with all valid semantic classes", () => {
-      const classes = ["trait", "preference", "hard_rule", "soft_constraint", "render_hint", "multi_voice"];
+      const classes: SemanticClass[] = ["trait", "preference", "hard_rule", "soft_constraint", "render_hint", "multi_voice"];
       const nodes = classes.map((cls, idx) => ({
         id: `test-${idx}`,
         canonicalKey: `test-${idx}`,
-        semanticClass: cls as any,
-        domain: "genre",
+        semanticClass: cls,
+        domain: "genre" as const,
         text: `test ${cls}`,
         priority: "dominant" as const,
         intensity: 50,
@@ -473,12 +473,12 @@ describe("verifyCompilerIR - Hardened Tests", () => {
     });
 
     it("accepts IR with all valid domains", () => {
-      const domains = ["genre", "role", "surface", "core", "delivery", "motion", "production"];
+      const domains: TraitDomain[] = ["genre", "role", "surface", "core", "delivery", "motion", "production"];
       const nodes = domains.map((domain, idx) => ({
         id: `test-${idx}`,
         canonicalKey: `test-${idx}`,
         semanticClass: "trait" as const,
-        domain: domain as any,
+        domain,
         text: `test ${domain}`,
         priority: "dominant" as const,
         intensity: 50,
@@ -495,14 +495,14 @@ describe("verifyCompilerIR - Hardened Tests", () => {
     });
 
     it("accepts IR with all valid priorities", () => {
-      const priorities = ["dominant", "blended", "subtle"];
+      const priorities: Priority[] = ["dominant", "blended", "subtle"];
       const nodes = priorities.map((priority, idx) => ({
         id: `test-${idx}`,
         canonicalKey: `test-${idx}`,
         semanticClass: "trait" as const,
         domain: "genre" as const,
         text: `test ${priority}`,
-        priority: priority as any,
+        priority,
         intensity: 50,
         robustness: "medium" as const,
         support: "direct" as const,
@@ -517,7 +517,7 @@ describe("verifyCompilerIR - Hardened Tests", () => {
     });
 
     it("accepts IR with all valid support levels", () => {
-      const supports = ["direct", "approximate", "unsupported", "rejected"];
+      const supports: SupportLevel[] = ["direct", "approximate", "unsupported", "rejected"];
       const nodes = supports.map((support, idx) => ({
         id: `test-${idx}`,
         canonicalKey: `test-${idx}`,
@@ -527,7 +527,7 @@ describe("verifyCompilerIR - Hardened Tests", () => {
         priority: "dominant" as const,
         intensity: 50,
         robustness: "medium" as const,
-        support: support as any,
+        support,
       }));
 
       const ir: CompilerIR = {
